@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>For Shruthi ❤️ - From Balaji</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins&display=swap" rel="stylesheet">
+
+<style>
+
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(-45deg, #ff758c, #ff7eb3, #ff6a88, #ff99ac);
+    background-size: 400% 400%;
+    animation: gradientBG 10s ease infinite;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.container {
+    padding: 10px;
+}
+
+h1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 34px;
+    color: white;
+    margin-bottom: 5px;
+}
+
+.subtitle {
+    color: white;
+    font-size: 15px;
+    margin-bottom: 15px;
+}
+
+.photo {
+    width: 90%;
+    max-width: 320px;
+    border-radius: 25px;
+    box-shadow: 0px 0px 25px white;
+    border: 4px solid white;
+}
+
+.story {
+    background: white;
+    padding: 18px;
+    border-radius: 20px;
+    margin: 15px auto;
+    color: #6b003b;
+    font-size: 16px;
+    line-height: 1.8;
+    box-shadow: 0px 0px 15px rgba(0,0,0,0.2);
+}
+
+.questionBox {
+    background: rgba(255,255,255,0.95);
+    padding: 15px;
+    border-radius: 20px;
+    margin-top: 15px;
+}
+
+.question {
+    font-size: 22px;
+    color: #b30059;
+    font-weight: bold;
+}
+
+button {
+    padding: 12px 25px;
+    font-size: 18px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    margin: 10px;
+}
+
+#yes {
+    background-color: #ff0066;
+    color: white;
+}
+
+#no {
+    background-color: #222;
+    color: white;
+    position: absolute;
+}
+
+#finalMessage {
+    display: none;
+    background: white;
+    padding: 20px;
+    border-radius: 25px;
+    margin-top: 20px;
+    color: #b30059;
+    font-size: 18px;
+    line-height: 1.9;
+}
+
+.footer {
+    margin-top: 20px;
+    font-size: 24px;
+    font-family: 'Dancing Script', cursive;
+    color: white;
+}
+
+.particle {
+    position: fixed;
+    font-size: 26px;
+    animation: floatUp 4s linear infinite;
+}
+
+@keyframes floatUp {
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(-900px); opacity: 0; }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- FREE ROMANTIC BACKGROUND MUSIC -->
+<audio id="loveSong">
+  <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_4f5c3c6e8c.mp3?filename=romantic-ambient-110624.mp3" type="audio/mpeg">
+</audio>
+
+<div class="container">
+
+<h1>Hey Shruthi ❤️</h1>
+
+<div class="subtitle">
+A small surprise made with love by Balaji
+</div>
+
+<img class="photo" src="photo.jfif">
+
+<div class="story">
+The day we met through Ajinkya in Aurangabad,  
+I never imagined it would turn into such a beautiful memory.  
+
+Those two days with you were magical.  
+We talked, laughed, drank, danced  
+and enjoyed every single moment together.  
+
+Some moments in life stay forever –  
+and those days with you are exactly that for me.  
+
+Your smile, your energy, your vibe –  
+everything about you feels special to me.  
+
+So today, with all my heart,  
+I want to ask you something...
+</div>
+
+<div class="questionBox">
+<div class="question">
+Shruthi, Will You Be My Valentine? 💖
+</div>
+
+<div class="buttons">
+    <button id="yes" onclick="accepted()">YES 😍</button>
+    <button id="no" onmouseover="moveNo()">NO 😜</button>
+</div>
+</div>
+
+<div id="finalMessage">
+Yayyyyy! 🎉💖<br><br>
+
+You just made my day absolutely special.<br>
+Hearing YES from you means a lot to me.<br><br>
+
+I hope this is the beginning of many more<br>
+beautiful memories together.<br><br>
+
+Happy Valentine’s Day, Shruthi 🌹
+</div>
+
+<div class="footer">
+Forever Yours,<br>
+Balaji 💕
+</div>
+
+</div>
+
+<script>
+
+function moveNo() {
+    var x = Math.random() * (window.innerWidth - 120);
+    var y = Math.random() * (window.innerHeight - 60);
+
+    document.getElementById('no').style.left = x + 'px';
+    document.getElementById('no').style.top = y + 'px';
+}
+
+function accepted() {
+    document.querySelector('.questionBox').style.display = "none";
+    document.getElementById('finalMessage').style.display = "block";
+
+    document.getElementById('loveSong').play();
+
+    for (let i = 0; i < 220; i++) {
+        createParticles();
+    }
+}
+
+function createParticles() {
+    const div = document.createElement("div");
+    div.classList.add("particle");
+
+    const icons = ["💖","🎉","🌹","💕","✨","💘"];
+    div.innerHTML = icons[Math.floor(Math.random()*icons.length)];
+
+    div.style.left = Math.random() * 100 + "vw";
+    div.style.animationDuration = Math.random() * 2 + 3 + "s";
+
+    document.body.appendChild(div);
+
+    setTimeout(() => {
+        div.remove();
+    }, 4000);
+}
+
+</script>
+
+</body>
+</html>
